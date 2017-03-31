@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Employees List</title>
+    </h:head>
+    <h:body>
+        <p:panel header="Employees List" >
+            <h:form id="tblEmployess" >
+                <p:dataTable var="employee" 
+                             value="#{employeeController.lstEmployee}"
+                             rows="10"
+                             paginator="true"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="5,10,15">
+                    <p:column headerText="Id">
+                        <h:outputText value="#{employee.id}" />
+                    </p:column>
+
+                    <p:column headerText="Employee Code">
+                        <h:outputText value="#{employee.idEmployee}" />
+                    </p:column>
+
+                    <p:column headerText="First Name">
+                        <h:outputText value="#{employee.firstName}" />
+                    </p:column>
+
+                    <p:column headerText="Last Name">
+                        <h:outputText value="#{employee.lastName}" />
+                    </p:column>
+
+                    <p:column headerText="Location">
+                        <h:outputText value="#{employee.location}" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+            
+            <p:commandButton value="Get employees from XML" 
+                             update="tblEmployess" 
+                             actionListener="#{employeeController.parseEmployeesFromXml()}"
+                             style="margin: 20px 0px;"/>
+            
+        </p:panel>
+    </h:body>
+</html>
+
