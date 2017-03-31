@@ -75,7 +75,6 @@ public class employeeController implements Serializable {
 
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Node node = nList.item(temp);
-                //System.out.println("");    //Just a separator
                 
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) node;
